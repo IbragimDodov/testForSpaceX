@@ -363,10 +363,21 @@ textarea {
 
 
 .App {
-  background-image: url(../src/assets/img/main-bg.jpg);
+  position: relative;
+  /* z-index: -999999; */
+  /* background-image: url(../src/assets/img/main-bg.jpg);
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: center center;
+  background-position: center center; */
+}
+
+.main-bg {
+  position: absolute;
+  object-fit: cover;
+  width: 100%;
+  height: 100vh;
+
+  z-index: -1;
 }
 
 .container {
@@ -381,9 +392,6 @@ textarea {
   display: flex;
   justify-content: space-between;
   align-items: center;
-
-  padding-top: 40px;
-  padding-bottom: 40px;
 }
 
 .header::after {
@@ -391,10 +399,46 @@ textarea {
   position: absolute;
   width: 100%;
   height: 100%;
-  background-color: rgb(21, 10, 1);
-  opacity: 0.212;
+  background-color: #171719;
+  opacity: 0.4;
   left: 0;
   top: 0;
+  border-bottom: 1px solid #2a292c;
+}
+
+.header__img-block {
+  border: 1px solid #fff;
+  position: relative;
+  z-index: 1;
+  padding: 20px;
+  cursor: pointer;
+}
+
+.header__img-block::after,
+.header__img-block::before {
+  content: "";
+  display: block;
+  border: 1px solid #2a292c;
+  z-index: 20;
+  position: absolute;
+}
+
+.header__img-block::after {
+  left: -1px;
+  top: 7px;
+  right: -1px;
+  bottom: 7px;
+  border-top: none;
+  border-bottom: none;
+}
+
+.header__img-block::before {
+  left: 7px;
+  top: -1px;
+  right: 7px;
+  bottom: -1px;
+  border-left: none;
+  border-right: none;
 }
 
 .header__list {
@@ -473,7 +517,27 @@ main {
   border-image: linear-gradient(188deg, rgba(38,62,102,1) 0%, rgba(9,33,61,1) 36%, rgba(17,31,45,1) 63%, rgba(35,89,156,1) 100%);
   border-image-slice: 1;
 
-  margin-top: 85px;
+  margin-top: 151px;
+}
+
+.left-side__btn:hover {
+  background-color: rgb(255,255,255);
+  background-image: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,63,4,1) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.left-side__btn::after {
+  content: url('../src/assets/img/linetoup.png');
+  display: block;
+  width: 406px;
+  height: 58px;
+  color: #fff;
+  font-family: FontAwesome;
+  background: transparent;
+  position: absolute;
+  top: 466px;
+  left: 364px;
 }
 
 .right-side {
@@ -490,7 +554,7 @@ main {
   grid-column-gap: 10px;
   grid-row-gap: 10px;
 
-  margin-top: 70px;
+  margin-top: 150px;
 }
 
 .right-side__block {
